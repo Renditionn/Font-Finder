@@ -1,0 +1,626 @@
+
+
+#font-finder-panel {
+  position: fixed !important;
+  top: 14px !important;
+  right: 14px !important;
+
+  width: 360px !important;
+  max-width: calc(100vw - 28px) !important;
+  max-height: calc(100vh - 28px) !important;
+
+  overflow: hidden !important;
+
+  z-index: 2147483647 !important;
+
+  background: #18191b !important;
+  color: #e7e9ec !important;
+
+  border: 1px solid #303237 !important;
+  border-radius: 8px !important;
+
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.42),
+    0 2px 8px rgba(0, 0, 0, 0.25) !important;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+
+  font-size: 12px !important;
+  line-height: 1.4 !important;
+
+  text-align: left !important;
+
+  box-sizing: border-box !important;
+}
+
+#font-finder-panel[hidden] {
+  display: none !important;
+}
+
+#font-finder-panel *,
+#font-finder-panel *::before,
+#font-finder-panel *::after {
+  box-sizing: border-box !important;
+}
+
+
+
+.ff-header {
+  height: 44px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  padding: 0 9px 0 13px !important;
+
+  border-bottom: 1px solid #2c2e32 !important;
+
+  background: #1b1c1e !important;
+}
+
+.ff-title {
+  color: #f1f2f3 !important;
+
+  font-size: 13px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.1px !important;
+}
+
+.ff-close {
+  width: 27px !important;
+  height: 27px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  padding: 0 !important;
+
+  border: 0 !important;
+  border-radius: 5px !important;
+
+  background: transparent !important;
+  color: #8d9197 !important;
+
+  font-family: Arial, sans-serif !important;
+  font-size: 20px !important;
+  font-weight: 300 !important;
+  line-height: 1 !important;
+
+  cursor: pointer !important;
+}
+
+.ff-close:hover {
+  background: #292b2f !important;
+  color: #f1f1f1 !important;
+}
+
+.ff-close:active {
+  background: #32353a !important;
+}
+
+
+
+.ff-body {
+  max-height: calc(100vh - 72px) !important;
+
+  overflow-y: auto !important;
+  overflow-x: hidden !important;
+
+  padding: 13px !important;
+
+  scrollbar-width: thin !important;
+  scrollbar-color: #3b3e43 transparent !important;
+}
+
+.ff-body::-webkit-scrollbar {
+  width: 7px !important;
+}
+
+.ff-body::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+.ff-body::-webkit-scrollbar-thumb {
+  background: #3a3d42 !important;
+  border-radius: 8px !important;
+}
+
+.ff-body::-webkit-scrollbar-thumb:hover {
+  background: #494d53 !important;
+}
+
+
+
+.ff-empty {
+  padding: 2px 1px 12px !important;
+
+  color: #858a91 !important;
+
+  font-size: 11px !important;
+}
+
+
+
+.ff-font-header {
+  padding: 1px 1px 12px !important;
+}
+
+.ff-font-name-large,
+.ff-font-name {
+  max-width: 100% !important;
+
+  margin: 0 0 3px !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  color: #f4f5f6 !important;
+
+  font-size: 18px !important;
+  font-weight: 600 !important;
+  letter-spacing: -0.25px !important;
+}
+
+.ff-font-sub {
+  color: #858a91 !important;
+
+  font-size: 11px !important;
+}
+
+
+
+.ff-details {
+  width: 100% !important;
+}
+
+.ff-details-inner {
+  width: 100% !important;
+}
+
+.ff-group {
+  margin-top: 2px !important;
+
+  padding: 7px 0 2px !important;
+
+  border-top: 1px solid #2c2e32 !important;
+}
+
+.ff-row {
+  min-height: 27px !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  padding: 2px 0 !important;
+
+  gap: 8px !important;
+}
+
+.ff-key {
+  width: 108px !important;
+  min-width: 108px !important;
+
+  color: #858a91 !important;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace !important;
+
+  font-size: 10px !important;
+}
+
+.ff-value {
+  min-width: 0 !important;
+  flex: 1 !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  color: #d9dce0 !important;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace !important;
+
+  font-size: 10px !important;
+}
+
+
+
+.ff-color-value,
+.ff-color {
+  min-width: 0 !important;
+
+  display: flex !important;
+  align-items: center !important;
+
+  gap: 7px !important;
+}
+
+.ff-color-swatch,
+.ff-swatch {
+  width: 16px !important;
+  height: 16px !important;
+
+  flex: 0 0 16px !important;
+
+  border: 1px solid rgba(255, 255, 255, 0.28) !important;
+  border-radius: 3px !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+.ff-color-text {
+  min-width: 0 !important;
+  flex: 1 !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  color: #dfe2e5 !important;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace !important;
+
+  font-size: 10px !important;
+}
+
+.ff-save-color,
+.ff-save {
+  height: 23px !important;
+
+  flex: 0 0 auto !important;
+
+  padding: 0 8px !important;
+
+  border: 1px solid #3b3e43 !important;
+  border-radius: 4px !important;
+
+  background: #242629 !important;
+  color: #cfd2d6 !important;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+
+  font-size: 10px !important;
+  font-weight: 500 !important;
+
+  cursor: pointer !important;
+}
+
+.ff-save-color:hover,
+.ff-save:hover {
+  background: #2d3034 !important;
+  border-color: #4b4f55 !important;
+  color: #ffffff !important;
+}
+
+.ff-save-color:active,
+.ff-save:active {
+  background: #202225 !important;
+}
+
+
+
+.ff-section {
+  margin-top: 16px !important;
+
+  padding-top: 13px !important;
+
+  border-top: 1px solid #2c2e32 !important;
+}
+
+.ff-section-title {
+  margin: 0 0 8px !important;
+
+  color: #aeb2b8 !important;
+
+  font-size: 10px !important;
+  font-weight: 600 !important;
+
+  text-transform: uppercase !important;
+  letter-spacing: 0.35px !important;
+}
+
+
+
+.ff-actions {
+  display: flex !important;
+
+  gap: 7px !important;
+
+  margin-top: 12px !important;
+}
+
+.ff-button {
+  height: 30px !important;
+
+  flex: 1 !important;
+
+  padding: 0 10px !important;
+
+  border: 1px solid #3a3d42 !important;
+  border-radius: 4px !important;
+
+  background: #242629 !important;
+  color: #dfe2e5 !important;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+
+  font-size: 10px !important;
+  font-weight: 500 !important;
+
+  cursor: pointer !important;
+}
+
+.ff-button:hover {
+  background: #2d3034 !important;
+  border-color: #4b4f55 !important;
+  color: #ffffff !important;
+}
+
+.ff-button:active {
+  background: #202225 !important;
+}
+
+.ff-button.ff-primary {
+  background: #2878e8 !important;
+  border-color: #2878e8 !important;
+  color: #ffffff !important;
+}
+
+.ff-button.ff-primary:hover {
+  background: #347fe6 !important;
+  border-color: #347fe6 !important;
+}
+
+
+
+.ff-copy-row {
+  display: flex !important;
+
+  gap: 7px !important;
+
+  margin-top: 12px !important;
+}
+
+.ff-copy-row button {
+  flex: 1 !important;
+}
+
+
+
+.ff-font-list {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 1px !important;
+
+  width: 100% !important;
+}
+
+.ff-font-item,
+.ff-font {
+  width: 100% !important;
+  min-height: 29px !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+
+  padding: 5px 7px !important;
+
+  border: 0 !important;
+  border-radius: 4px !important;
+
+  background: transparent !important;
+
+  color: #d9dce0 !important;
+
+  text-align: left !important;
+
+  cursor: default !important;
+}
+
+.ff-font-item:hover,
+.ff-font:hover {
+  background: #222427 !important;
+}
+
+.ff-font-name-small {
+  min-width: 0 !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+
+  color: #d9dce0 !important;
+
+  font-size: 11px !important;
+}
+
+.ff-count {
+  flex: 0 0 auto !important;
+
+  margin-left: 12px !important;
+
+  color: #70757c !important;
+
+  font-family:
+    "SFMono-Regular",
+    Consolas,
+    "Liberation Mono",
+    monospace !important;
+
+  font-size: 10px !important;
+}
+
+
+
+.ff-saved {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: center !important;
+
+  gap: 6px !important;
+
+  min-height: 22px !important;
+}
+
+.ff-saved-color {
+  width: 23px !important;
+  height: 23px !important;
+
+  flex: 0 0 23px !important;
+
+  padding: 0 !important;
+
+  border: 1px solid #4b4f55 !important;
+  border-radius: 4px !important;
+
+  cursor: pointer !important;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(0, 0, 0, 0.15) !important;
+}
+
+.ff-saved-color:hover {
+  border-color: #e5e7ea !important;
+
+  transform: translateY(-1px) !important;
+}
+
+.ff-saved-color:active {
+  transform: translateY(0) !important;
+}
+
+
+
+.ff-no-colors {
+  color: #686d74 !important;
+
+  font-size: 10px !important;
+}
+
+
+
+#font-finder-selection {
+  position: absolute !important;
+
+  display: none !important;
+
+  z-index: 2147483645 !important;
+
+  pointer-events: none !important;
+
+  border: 1px solid #2878e8 !important;
+
+  background: rgba(40, 120, 232, 0.035) !important;
+
+  box-shadow:
+    0 0 0 1px rgba(40, 120, 232, 0.12) !important;
+
+  box-sizing: border-box !important;
+}
+
+#font-finder-hover-label {
+  position: absolute !important;
+
+  display: none !important;
+
+  z-index: 2147483646 !important;
+
+  pointer-events: none !important;
+
+  max-width: 280px !important;
+
+  padding: 4px 7px !important;
+
+  border: 1px solid #3b3e43 !important;
+  border-radius: 4px !important;
+
+  background: #18191b !important;
+  color: #dfe2e5 !important;
+
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.28) !important;
+
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif !important;
+
+  font-size: 10px !important;
+  line-height: 1.3 !important;
+
+  white-space: nowrap !important;
+
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+}
+
+
+
+.ff-locked {
+  outline: 1px solid #2878e8 !important;
+  outline-offset: 2px !important;
+}
+
+
+
+#font-finder-panel button:focus {
+  outline: none !important;
+}
+
+#font-finder-panel button:focus-visible {
+  outline: 1px solid #2878e8 !important;
+  outline-offset: 1px !important;
+}
+
+
+
+@media (max-width: 500px) {
+  #font-finder-panel {
+    top: 8px !important;
+    right: 8px !important;
+
+    width: calc(100vw - 16px) !important;
+    max-width: none !important;
+
+    max-height: calc(100vh - 16px) !important;
+  }
+
+  .ff-key {
+    width: 96px !important;
+    min-width: 96px !important;
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "Font Finder",
+  "version": "1.1.0",
+  "description": "Inspect fonts, typography, colours and more on any webpage.",
+  "permissions": [
+    "activeTab",
+    "scripting"
+  ],
+  "action": {
+    "default_title": "Font Finder"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "commands": {
+    "toggle-font-finder": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+F"
+      },
+      "description": "Toggle Font Finder"
+    }
+  }
+}
